@@ -1,0 +1,72 @@
+.home-sideNavbar {
+  position: fixed;
+  top: 56px; /* below navbar */
+  left: 0;
+  width: 275px;
+  height: calc(100vh - 56px);
+  background-color: #000;
+  color: white;
+  padding: 14px;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+
+/* Hide Sidebar */
+.home-sideNavbarHide {
+  transform: translateX(-100%);
+}
+
+/* Top Section */
+.home-sideNavbarTop {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Options */
+.home_sideNavbarTopOption {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Hover Effect */
+.home_sideNavbarTopOption:hover {
+  background-color: #272727;
+}
+
+/* Active Option */
+.home_sideNavbarTopOption.active {
+  background-color: #3f3f3f;
+  font-weight: 500;
+}
+
+/* Section Title */
+.home_sideNavbarSectionTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #aaa;
+  padding: 8px 12px;
+}
+
+/* Channel Avatar */
+.channel-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Divider */
+.home-sideNavbar hr {
+  border: none;
+  height: 1px;
+  background-color: #303030;
+  margin: 12px 0;
+}

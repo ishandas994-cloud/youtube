@@ -1,0 +1,62 @@
+/* history.css */
+
+/* ===== Page Layout ===== */
+.history_page {
+  padding: 20px;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+  background-color: #121212;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Shift content if sidebar is open */
+.history_page.sidebar-open {
+  margin-left: 240px; /* match your sidebar width */
+}
+
+/* ===== Page Header ===== */
+.history_page h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+/* ===== Grid Layout ===== */
+.history_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ===== Each Video Card ===== */
+.history_card {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.history_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.history_card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.history_card h3 {
+  font-size: 18px;
+  margin: 10px;
+}
+
+.history_card p {
+  font-size: 14px;
+  margin: 0 10px 10px 10px;
+  color: #aaa;
+}

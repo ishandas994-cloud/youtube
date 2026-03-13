@@ -1,0 +1,226 @@
+/* ================= GLOBAL LINK RESET ================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.youtube_link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #0f0f0f;
+  z-index: 1000;
+}
+
+/* ================= LEFT ================= */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.navbarHamburger {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbarHamburger:hover {
+  background-color: #272727;
+}
+
+.navbarHamburger svg {
+  color: white;
+}
+
+/* ================= LOGO ================= */
+.youtube_img {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.youtube_image {
+  color: red;
+  font-size: 34px;
+}
+
+.navbar_youtubetitle {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ================= CENTER ================= */
+.navbar-center {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+}
+
+/* ================= SEARCH BAR ================= */
+.navbar-search {
+  display: flex;
+  align-items: center;
+  width: 550px;
+  max-width: 100%;
+  transition: all 0.3s ease;
+}
+
+.search-input {
+  width: 100%;
+  height: 40px;
+  background-color: #121212;
+  border: 1px solid #303030;
+  border-radius: 20px 0 0 20px;
+  padding-left: 16px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #1E90FF; /* blue border */
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.6); /* blue glow */
+  outline: none;
+}
+
+.search-icon {
+  width: 64px;
+  height: 40px;
+  background-color: #222;
+  border: 1px solid #303030;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-icon:hover {
+  background-color: #1E90FF;
+  transform: scale(1.05);
+}
+
+.search-icon svg {
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.search-icon:hover svg {
+  transform: scale(1.2);
+}
+
+.search-input:active {
+  transform: scale(0.98);
+}
+
+/* ================= MICROPHONE ================= */
+.navbar-mic {
+  width: 40px;
+  height: 40px;
+  background-color: #181818;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-mic:hover {
+  background-color: #272727;
+}
+
+.navbar-mic svg {
+  color: white;
+}
+
+/* ================= RIGHT ================= */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-icon {
+  width: 30px !important;
+  height: 30px !important;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.navbar-icon:hover {
+  background-color: #272727;
+}
+
+/* ================= PROFILE DROPDOWN ================= */
+.profile-wrapper {
+  position: relative;
+}
+
+.navbar-model {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  background: #212121;
+  border-radius: 8px;
+  width: 160px;
+  padding: 6px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-model-item {
+  padding: 10px 16px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.navbar-model-item:hover {
+  background: #383838;
+}
+
+.navbar-profile-pic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+.mic-active {
+  background-color: #452492;
+  color: white;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}

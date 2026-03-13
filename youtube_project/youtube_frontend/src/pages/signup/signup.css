@@ -1,0 +1,93 @@
+.signup-page {
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* so navbar visible */
+}
+
+.signup-card {
+  width: 900px;
+  background: black;
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* LEFT SIDE */
+.signup-left {
+  width: 35%;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-preview img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+/* RIGHT SIDE */
+.signup-right {
+  width: 65%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.signup-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.youtube-logo {
+  color: red;
+  font-size: 40px !important;
+}
+
+.signup-input,
+.signup-textarea {
+  padding: 12px;
+  background: #272727;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.signup-textarea {
+  resize: none;
+  height: 80px;
+}
+
+.signup-file {
+  color: white;
+}
+
+.signup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.signup-buttons button {
+  padding: 10px 20px;
+  background: #272727;
+  border: 1px solid white;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signup-buttons button:hover {
+  background: #3f3f3f;
+}

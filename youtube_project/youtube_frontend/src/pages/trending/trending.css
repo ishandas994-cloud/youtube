@@ -1,0 +1,48 @@
+/* main container */
+.trending-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 20px;
+  background-color: #0f0f0f;
+}
+
+/* remove link styling */
+.trending-link {
+  text-decoration: none;
+  color: white;
+}
+
+/* card */
+.trending-card {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.trending-card:hover {
+  transform: scale(1.03);
+}
+
+/* thumbnail */
+.trending-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* video info */
+.trending-info {
+  margin-top: 10px;
+}
+
+.trending-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.trending-channel {
+  font-size: 14px;
+  color: #aaaaaa;
+}
