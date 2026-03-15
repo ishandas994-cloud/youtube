@@ -58,6 +58,12 @@ app.use((err, req, res, next) => {
   res.status(500).json({ success: false, message: "Server error" });
 });
 
+// Validate required env variables
+if (!process.env.JWT_SECRET) {
+  console.error("FATAL ERROR: JWT_SECRET is not set in .env");
+  process.exit(1);
+}
+
 // ================= START SERVER =================
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

@@ -80,8 +80,9 @@ function Signup() {
       console.log("Submitting Signup:", formData);
 
       const res = await axios.post(
-        "http://localhost:4000/api/signUp",
-        formData
+        "http://localhost:4000/api/user/signUp",
+        formData,
+        { withCredentials: true }
       );
 
       console.log("Signup Response:", res.data);
