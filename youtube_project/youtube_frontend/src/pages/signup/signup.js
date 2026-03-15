@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import axios from "axios";
+import api from "../../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./signup.css";
@@ -79,10 +80,7 @@ function Signup() {
       setLoading(true);
       console.log("Submitting Signup:", formData);
 
-      const res = await axios.post(
-        "http://localhost:4000/api/signUp",
-        formData
-      );
+      const res = await api.post("/api/signUp", formData);
 
       console.log("Signup Response:", res.data);
 

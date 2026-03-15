@@ -3,6 +3,7 @@ import "./videouplode.css";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import api from "../../api";
 import { Box, CircularProgress } from "@mui/material";
 
 const Videouplod = () => {
@@ -110,15 +111,11 @@ const Videouplod = () => {
 
       setLoader(true);
 
-      const response = await axios.post(
-        "http://localhost:4000/api/video",
-        videoData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await api.post("/api/video", videoData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.data.success) {
         setSuccessMsg("🎉 Video Uploaded Successfully! Congrats!");

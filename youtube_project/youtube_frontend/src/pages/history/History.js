@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import api from "../../api";
 import "./History.css";
 
 const History = ({ sideNavbar }) => {
@@ -23,7 +24,7 @@ const History = ({ sideNavbar }) => {
           return;
         }
 
-        const res = await axios.get("http://localhost:4000/api/history/get", {
+        const res = await api.get("/api/history/get", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
