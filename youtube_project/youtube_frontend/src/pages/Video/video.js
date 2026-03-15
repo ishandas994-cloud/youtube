@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import api from "../../api";
 import "./video.css";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
@@ -31,7 +30,7 @@ const VideoPage = () => {
         setLoading(true);
 
         // ✅ Fetch video
-        const videoRes = await api.get(`/api/video/${id}`);
+        const videoRes = await axios.get(`http://localhost:4000/api/video/${id}`);
         if (videoRes.data.success) {
           const video = videoRes.data.video;
           setVideoData(video);
@@ -42,19 +41,23 @@ const VideoPage = () => {
         }
 
         // ✅ Fetch comments
-        const commentRes = await api.get(`/api/comment/${id}`);
+        const commentRes = await axios.get(
+          `http://localhost:4000/api/comment/${id}`
+        );
         setComments(commentRes.data.comments || []);
 
         // ✅ Fetch suggested videos
-        const suggestionRes = await api.get(`/api/video/suggested/${id}`);
+        const suggestionRes = await axios.get(
+          `http://localhost:4000/api/video/suggested/${id}`
+        );
         if (suggestionRes.data.success) {
           setSuggestedVideos(suggestionRes.data.suggested);
         }
 
         // ✅ Add to history
         if (token) {
-          await api.post(
-            "/api/history/add",
+          await axios.post(
+            "http://localhost:4000/api/history/add",
             { video: id },
             { headers: { Authorization: `Bearer ${token}` } }
           );
@@ -78,8 +81,8 @@ const VideoPage = () => {
     }
 
     try {
-      const res = await api.put(
-        `/api/video/react/${id}`,
+      const res = await axios.put(
+        `http://localhost:4000/api/video/react/${id}`,
         { type },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -108,8 +111,8 @@ const VideoPage = () => {
     if (!commentText.trim()) return;
 
     try {
-const res = await api.post(
-      "/api/comment",
+      const res = await axios.post(
+        "http://localhost:4000/api/comment",
         { video: videoData._id, message: commentText },
         { headers: { Authorization: `Bearer ${token}` } }
       );

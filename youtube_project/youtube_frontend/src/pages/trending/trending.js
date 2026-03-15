@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import api from "../../api";
 import { Link } from "react-router-dom";
 import "./trending.css";
 
@@ -10,7 +9,7 @@ const Trending = () => {
   useEffect(() => {
     const fetchTrending = async () => {
       try {
-        const res = await api.get("/api/video/trending");
+        const res = await axios.get("http://localhost:4000/api/video/trending");
 
         if (res.data && res.data.videos) {
           setVideos(res.data.videos);

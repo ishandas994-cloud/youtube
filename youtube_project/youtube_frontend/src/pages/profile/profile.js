@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import api from "../../api";
 import "./profile.css";
 
 const Profile = ({ sideNavbar }) => {
@@ -16,16 +15,15 @@ const Profile = ({ sideNavbar }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        
         setLoading(true);
         setError("");
 
         // ✅ Updated endpoint: use /api/user/
         const endpoint = id
-          ? `/api/user/profile/${id}`
-          : `/api/user/profile/me`;
+          ? `http://localhost:4000/api/user/profile/${id}`
+          : `http://localhost:4000/api/user/profile/me`;
 
-        const res = await api.get(endpoint, {
+        const res = await axios.get(endpoint, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

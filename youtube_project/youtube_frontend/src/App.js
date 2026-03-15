@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import api from "./api";
+import axios from "axios";
 
 import "./App.css";
 
@@ -25,8 +25,8 @@ function App() {
 
   useEffect(() => {
     // ✅ Fetch all videos from backend
-    api
-      .get("/api/video")
+    axios
+      .get("http://localhost:4000/api/video")
       .then((res) => console.log("Videos:", res.data))
       .catch((err) => console.log("Error:", err));
   }, []);
