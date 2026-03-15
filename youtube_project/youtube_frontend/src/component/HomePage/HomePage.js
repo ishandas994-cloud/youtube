@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./HomePage.css";
-import axios from "axios";
+import api from "../../api";
 
 const HomePage = ({ sideNavbar }) => {
   const [videos, setVideos] = useState([]);
@@ -21,7 +21,7 @@ const HomePage = ({ sideNavbar }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/video");
+        const res = await api.get("/api/video");
 
         if (res.data.success && Array.isArray(res.data.videos)) {
           const videoData = res.data.videos;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import api from "../../api";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -79,8 +80,8 @@ function Signup() {
       setLoading(true);
       console.log("Submitting Signup:", formData);
 
-      const res = await axios.post(
-        "http://localhost:4000/api/user/signUp",
+      const res = await api.post(
+        "/api/user/signUp",
         formData,
         { withCredentials: true }
       );

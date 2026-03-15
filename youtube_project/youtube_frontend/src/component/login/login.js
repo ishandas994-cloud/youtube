@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinearProgress from "@mui/material/LinearProgress";
 import "./login.css";
-import axios from "axios";
+import api from "../../api";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -34,8 +34,8 @@ function Login({ setIsLoggedIn }) {
       setLoading(true);
 
       // ✅ Correct backend route
-      const response = await axios.post(
-        "http://localhost:4000/api/user/login",
+      const response = await api.post(
+        "/api/user/login",
         loginField,
         { withCredentials: true }
       );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../../api";
 
 const Search = () => {
   const { query } = useParams();
@@ -10,9 +10,7 @@ const Search = () => {
   useEffect(() => {
     const fetchSearch = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:4000/api/video/search/${query}`
-        );
+        const res = await api.get(`/api/video/search/${query}`);
 
         if (res.data.success) {
           setVideos(res.data.videos);

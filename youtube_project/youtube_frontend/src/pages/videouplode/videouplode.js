@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./videouplode.css";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "react-router-dom";
+import api from "../../api";
 import axios from "axios";
 import { Box, CircularProgress } from "@mui/material";
 
@@ -110,8 +111,8 @@ const Videouplod = () => {
 
       setLoader(true);
 
-      const response = await axios.post(
-        "http://localhost:4000/api/video",
+      const response = await api.post(
+        "/api/video",
         videoData,
         {
           headers: {
