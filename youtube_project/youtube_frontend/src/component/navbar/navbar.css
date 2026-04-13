@@ -224,3 +224,33 @@ a {
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  .navbar-center {
+    display: none; /* hide big search bar */
+  }
+
+  .navbar_youtubetitle {
+    display: none; /* hide YouTube text */
+  }
+
+  .navbar-right {
+    gap: 8px;
+  }
+
+  .navbar-icon {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 4px;
+  }
+
+  .navbar-profile-pic {
+    width: 28px;
+    height: 28px;
+  }
+
+  .navbar {
+    padding: 0 8px;
+  }
+}

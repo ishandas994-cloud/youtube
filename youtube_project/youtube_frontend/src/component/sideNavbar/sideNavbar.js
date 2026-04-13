@@ -14,12 +14,16 @@ import PersonIcon from "@mui/icons-material/Person";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 
 const SideNavbar = ({ sideNavbar }) => {
+  // Toggle sidebar class for mobile overlay behavior
+  const sidebarClass = `home-sideNavbar ${
+    sideNavbar ? "home-sideNavbarOpen" : "home-sideNavbarHide"
+  }`;
+
   return (
-    <div className={`home-sideNavbar ${!sideNavbar ? "home-sideNavbarHide" : ""}`}>
+    <div className={sidebarClass}>
 
       {/* TOP SECTION */}
       <div className="home-sideNavbarTop">
-
         <NavLink to="/" className="home_sideNavbarTopOption">
           <HomeIcon />
           <span>Home</span>
@@ -29,14 +33,12 @@ const SideNavbar = ({ sideNavbar }) => {
           <WhatshotIcon />
           <span>Trending</span>
         </NavLink>
-
       </div>
 
       <hr />
 
       {/* LIBRARY */}
       <div className="home-sideNavbarTop">
-
         <NavLink to="/history" className="home_sideNavbarTopOption">
           <HistoryIcon />
           <span>History</span>
@@ -51,14 +53,12 @@ const SideNavbar = ({ sideNavbar }) => {
           <ThumbUpAltIcon />
           <span>Liked Videos</span>
         </NavLink>
-
       </div>
 
       <hr />
 
       {/* USER SECTION */}
       <div className="home-sideNavbarTop">
-
         <NavLink to="/subscriptions" className="home_sideNavbarTopOption">
           <SubscriptionsIcon />
           <span>Subscriptions</span>
@@ -83,7 +83,6 @@ const SideNavbar = ({ sideNavbar }) => {
           <VideoLibraryIcon />
           <span>Your Videos</span>
         </NavLink>
-
       </div>
 
       <hr />
@@ -99,7 +98,6 @@ const SideNavbar = ({ sideNavbar }) => {
         />
         <span>Aura Serenity</span>
       </NavLink>
-
     </div>
   );
 };

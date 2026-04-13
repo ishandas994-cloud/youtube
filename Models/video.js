@@ -7,34 +7,13 @@ const videoSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-
-    title: {
-      type: String,
-      required: true,
-    },
-
+    title: { type: String, required: true },
     description: String,
     videoLink: String,
     thumbnail: String,
-    videoType: {
-      type: String,
-      default: "All",
-    },
-
-    // ✅ MUST BE HERE
-    likes: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
-
-    dislikes: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    videoType: { type: String, default: "All" },
+    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    dislikes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   },
   { timestamps: true }
 );

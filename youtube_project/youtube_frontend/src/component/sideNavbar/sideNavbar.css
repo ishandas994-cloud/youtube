@@ -17,6 +17,20 @@
   transform: translateX(-100%);
 }
 
+/* MOBILE FIX: Sidebar hidden off-screen by default and overlays content */
+@media (max-width: 768px) {
+  .home-sideNavbar {
+    background-color: #121212;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.7);
+    transform: translateX(-100%);
+  }
+
+  /* Show sidebar when open */
+  .home-sideNavbar.home-sideNavbarOpen {
+    transform: translateX(0);
+  }
+}
+
 /* Top Section */
 .home-sideNavbarTop {
   display: flex;

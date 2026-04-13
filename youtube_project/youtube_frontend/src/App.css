@@ -35,3 +35,31 @@ textarea {
 .shift-content {
   margin-left: 275px;
 }
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .shift-content {
+    margin-left: 0 !important;
+  }
+}
+.app-layout {
+  display: flex;
+}
+
+.app-content {
+  width: 100%;
+  margin-top: 56px; /* navbar height */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* When sidebar open on desktop */
+.shift-content {
+  margin-left: 275px;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .shift-content {
+    margin-left: 0 !important;
+  }
+}

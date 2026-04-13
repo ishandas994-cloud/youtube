@@ -1,71 +1,64 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
+const path = require("path");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+
+const app = express();
 
 // Database connection
 require("./Connection/conn");
 
-// Import routes
+// Routes
 const userRoutes = require("./Routes/user");
 const videoRoutes = require("./Routes/video");
 const commentRoutes = require("./Routes/comment");
 const historyRoutes = require("./Routes/history");
 
-// ================= MIDDLEWARE =================
-// Enable CORS for frontend
-app.use(
-  cors({
-    origin: "http://localhost:3000", // React frontend
-    credentials: true,               // allow cookies / auth headers
-  })
-);
+// ✅ Allow frontend Ngrok URL for mobile and laptop
+const FRONTEND_URLS = [
+  "http://localhost:3000",
+  "https://nonqualitative-preposterously-anaya.ngrok-free.dev",
+  "https://youtube-wwj2.vercel.app" 
+].filter(Boolean);
 
-// Parse JSON bodies
+app.use(cors({
+  origin: FRONTEND_URLS,
+  credentials: true,
+}));
+
 app.use(express.json());
-
-// Parse cookies
 app.use(cookieParser());
 
-// ================= ROUTES =================
-// User routes (login, signup, profile)
+// ✅ Serve videos folder publicly (important!)
+app.use("/videos", express.static(path.join(__dirname, "videos")));
+
+// Routes
 app.use("/api/user", userRoutes);
-
-// Video routes
-app.use("/api/video", videoRoutes); // changed to /api/video for consistency
-
-// Comment routes
+app.use("/api/video", videoRoutes);
 app.use("/api/comment", commentRoutes);
-
-// History routes
 app.use("/api/history", historyRoutes);
 
-// ================= TEST ROUTE =================
-app.get("/", (req, res) => {
-  res.send("Backend is working successfully 🚀");
-});
+// Test route
+app.get("/", (req, res) => res.send("Backend running 🚀"));
 
-// ================= ERROR HANDLING =================
-// 404 handler for undefined routes
-app.use((req, res, next) => {
-  res.status(404).json({ success: false, message: "Route not found" });
-});
+// Error handling
+app.use((req, res) => res.status(404).json({ success: false, message: "Route not found" }));
 
-// General error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: "Server error" });
 });
 
-// Validate required env variables
+// Env check
 if (!process.env.JWT_SECRET) {
-  console.error("FATAL ERROR: JWT_SECRET is not set in .env");
+  console.error("FATAL ERROR: JWT_SECRET not set");
   process.exit(1);
 }
 
-// ================= START SERVER =================
+// Start server
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Backend running on port ${PORT}`);
+  if (process.env.NGROK_URL) console.log(`Ngrok URL: ${process.env.NGROK_URL}`);
 });

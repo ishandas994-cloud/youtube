@@ -60,7 +60,7 @@ const Navbar = ({ sideNavbar, setSideNavbarFunc }) => {
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
-      alert("Speech recognition not supported in this browser");
+      alert("Speech recognition not supported");
       return;
     }
 
@@ -76,13 +76,8 @@ const Navbar = ({ sideNavbar, setSideNavbarFunc }) => {
       navigate(`/?search=${transcript}`);
     };
 
-    recognition.onerror = () => {
-      setListening(false);
-    };
-
-    recognition.onend = () => {
-      setListening(false);
-    };
+    recognition.onend = () => setListening(false);
+    recognition.onerror = () => setListening(false);
   };
 
   // ================= LOGOUT =================
@@ -140,7 +135,6 @@ const Navbar = ({ sideNavbar, setSideNavbarFunc }) => {
           </div>
         </div>
 
-        {/* MIC BUTTON */}
         <div
           className={`navbar-mic ${listening ? "mic-active" : ""}`}
           onClick={handleVoiceSearch}
@@ -159,21 +153,23 @@ const Navbar = ({ sideNavbar, setSideNavbarFunc }) => {
         <NotificationsIcon className="navbar-icon" />
 
         <div className="profile-wrapper">
-          {loggedIn && userPic ? (
+
+          {/* ✅ FIXED LOGIN BUTTON FOR MOBILE */}
+          {!loggedIn ? (
+            <PersonIcon
+              className="navbar-icon"
+              onClick={() => navigate("/login")}
+            />
+          ) : (
             <img
               src={userPic}
               alt="profile"
               className="navbar-profile-pic"
               onClick={() => setShowProfileMenu(!showProfileMenu)}
             />
-          ) : (
-            <PersonIcon
-              className="navbar-icon"
-              onClick={() => setShowProfileMenu(!showProfileMenu)}
-            />
           )}
 
-          {showProfileMenu && (
+          {showProfileMenu && loggedIn && (
             <div className="navbar-model">
               <div
                 className="navbar-model-item"
@@ -192,24 +188,12 @@ const Navbar = ({ sideNavbar, setSideNavbarFunc }) => {
                 Profile
               </div>
 
-              {!loggedIn ? (
-                <div
-                  className="navbar-model-item"
-                  onClick={() => {
-                    navigate("/login");
-                    setShowProfileMenu(false);
-                  }}
-                >
-                  Login
-                </div>
-              ) : (
-                <div
-                  className="navbar-model-item"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </div>
-              )}
+              <div
+                className="navbar-model-item"
+                onClick={handleLogout}
+              >
+                Logout
+              </div>
             </div>
           )}
         </div>

@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const videoController = require("../Controllers/video");
 const auth = require("../Connection/middleware/authentication");
 
