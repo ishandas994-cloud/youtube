@@ -1,3 +1,4 @@
-/node_modules
-/youtube_project/node_modules
-.env
+/backend/node_modules
+/frontend/node_modules
+/backend/.env
+/frontend/.env
