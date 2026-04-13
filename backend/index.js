@@ -85,8 +85,13 @@ if (!process.env.JWT_SECRET) {
   process.exit(1);
 }
 
-// Start server
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 Backend running on port ${PORT}`);
-});
+// Start server wrapper
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 4000;
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Backend running on port ${PORT}`);
+  });
+}
+
+// Export for Vercel
+module.exports = app;
