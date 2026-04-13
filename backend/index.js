@@ -19,7 +19,8 @@ const historyRoutes = require("./Routes/history");
 const FRONTEND_URLS = [
   "http://localhost:3000",
   "https://nonqualitative-preposterously-anaya.ngrok-free.dev",
-  "https://youtube-wwj2.vercel.app"
+  "https://youtube-wwj2.vercel.app",
+  "https://youtube-frontend-eight.vercel.app"
 ];
 
 // ✅ FIXED CORS (dynamic origin)
