@@ -1,6 +1,13 @@
 const Video = require("../Models/video");
 const Comment = require("../Models/comment");
 
+const getAbsoluteVideoLink = (link) => {
+  if (!link) return link;
+  if (link.startsWith("http")) return link;
+  const baseUrl = process.env.BACKEND_URL || "http://localhost:4000";
+  return `${baseUrl}${link.startsWith("/") ? "" : "/"}${link}`;
+};
+
 
 // ================= UPLOAD VIDEO =================
 exports.uploadVideo = async (req, res) => {
